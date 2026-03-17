@@ -173,7 +173,8 @@ $transaction_id = $order->get_transaction_id();
                 </td>
                 <td style="width: 34%;" class="info-details">
                     <div class="info-value">
-                        <strong>Invoice:</strong> #<?php echo $order->get_order_number(); ?><br>
+                        <strong>Order:</strong> #<?php echo $order->get_order_number(); ?><br>
+                        <strong>Invoice:</strong> #<?php echo $invoice_number; ?><br>
                         <strong>Invoice Date:</strong> <?php echo $date_created ? $date_created->date( 'F j, Y' ) : ''; ?><br>
                         <strong>Payment Method:</strong> <?php echo $payment_method; ?><br>
                         <?php if ( $transaction_id ) : ?>
@@ -220,6 +221,18 @@ $transaction_id = $order->get_transaction_id();
                     <td class="totals-label">Subtotal</td>
                     <td class="totals-value"><?php echo number_format( $order->get_subtotal(), 2 ) . ' ' . $currency; ?></td>
                 </tr>
+                <?php if ( $order->get_shipping_total() > 0 ) : ?>
+                <tr>
+                    <td class="totals-label">Shipping</td>
+                    <td class="totals-value"><?php echo number_format( $order->get_shipping_total(), 2 ) . ' ' . $currency; ?></td>
+                </tr>
+                <?php endif; ?>
+                <?php if ( $order->get_discount_total() > 0 ) : ?>
+                <tr>
+                    <td class="totals-label">Discount</td>
+                    <td class="totals-value">-<?php echo number_format( $order->get_discount_total(), 2 ) . ' ' . $currency; ?></td>
+                </tr>
+                <?php endif; ?>
                 <tr class="total-row">
                     <td class="totals-label">TOTAL</td>
                     <td class="totals-value"><?php echo number_format( $order->get_total(), 2 ) . ' ' . $currency; ?></td>
