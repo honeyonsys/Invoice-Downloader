@@ -233,6 +233,12 @@ $transaction_id = $order->get_transaction_id();
                     <td class="totals-value">-<?php echo number_format( $order->get_discount_total(), 2 ) . ' ' . $currency; ?></td>
                 </tr>
                 <?php endif; ?>
+                <?php if ( $order->get_total_tax() > 0 ) : ?>
+                <tr>
+                    <td class="totals-label">Export</td>
+                    <td class="totals-value"><?php echo number_format( $order->get_total_tax(), 2 ) . ' ' . $currency; ?></td>
+                </tr>
+                <?php endif; ?>
                 <tr class="total-row">
                     <td class="totals-label">TOTAL</td>
                     <td class="totals-value"><?php echo number_format( $order->get_total(), 2 ) . ' ' . $currency; ?></td>
