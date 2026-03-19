@@ -138,7 +138,7 @@ $transaction_id = $order->get_transaction_id();
         <table class="header-table">
             <tr>
                 <td class="header-left" style="width: 60%;">
-                    <h1>Floating Pivot LLC</h1>
+                    <h1>The Floating Pivot LLC</h1>
                     <div class="store-info">
                         Shams Media City Freezone<br>
                         United Arab Emirates
